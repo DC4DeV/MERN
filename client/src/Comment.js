@@ -12,6 +12,7 @@ const Comment = props => (
                 <ReactMarkdown source={props.children} />
             </div>
             <div className="singleCommentButtons">
+                <span className="time">{moment(props.timestamp).fromNow()}</span>
                 <a onClick={() => { props.handleUpdateComment(props.id); }}>update</a>
                 <a onClick={() => { props.handleDeleteComment(props.id); }}>delete</a>
             </div>
