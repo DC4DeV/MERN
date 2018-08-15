@@ -48,7 +48,7 @@ router.post('/comments', (req, res) => {
   }
   comment.author = author;
   comment.text = text;
-  comment.save(err => {
+  comment.save((err) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });
   });
@@ -64,7 +64,7 @@ router.put('/comments/:commentId', (req, res) => {
     const { author, text } = req.body;
     if (author) comment.author = author;
     if (text) comment.text = text;
-    comment.save(error => {
+    comment.save((error) => {
       if (error) return res.json({ success: false, error });
       return res.json({ success: true });
     });
@@ -81,6 +81,7 @@ router.delete('/comments/:commentId', (req, res) => {
     return res.json({ success: true });
   });
 });
+
 
 // Use our router configuration when we call /api
 app.use('/api', router);
